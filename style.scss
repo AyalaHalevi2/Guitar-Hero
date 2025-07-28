@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(216, 197, 197);
+        font-family: "Source Serif 4", serif;
+
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    gap: 30vw;
+    background-color: gray;
+    margin: -8px;
+    justify-content: flex-start;
+    
+    padding: 20px 0px 20px 0px;
+    border-bottom: 2px solid rgb(97, 89, 89);
+
+
+
+
+
+
+    &__logo {
+        display: flex;
+        flex-direction: row;
+        text-align: center;
+        align-items: center;
+        margin-left: 20px;
+        font-size: 1.8rem;
+        
+
+
+        &__image {
+
+            img {
+                width: 90px;
+                height: 70px;
+                
+            }
+        }
+
+    }
+
+    &__title {
+        display: flex;
+        align-items: center;
+        font-size: 2rem;
+    }
+}
+
+#addGuitarButton{
+    .addGuitar__image{
+        img{
+            width: 50px;
+            height: 50px;
+            margin-top: 20px;
+            border-radius: 20%;
+            cursor: pointer;
+        }
+    }
+}
