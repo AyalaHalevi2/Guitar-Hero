@@ -18,6 +18,7 @@ function renderProducts(guitars) {
 }
 //control functions
 window.addEventListener("DOMContentLoaded", function () {
+    new ThemeToggle();
     try {
         var button = document.getElementById("addGuitarButton");
         if (!button)
@@ -77,3 +78,31 @@ function displayForm(isVisible) {
         console.error("error displayForm", error);
     }
 }
+var ThemeToggle = /** @class */ (function () {
+    function ThemeToggle() {
+        this.isDark = false;
+        this.toggle = document.getElementById('theme-toggle');
+        if (this.toggle) {
+            this.init();
+        }
+    }
+    ThemeToggle.prototype.init = function () {
+        var _this = this;
+        this.toggle.addEventListener('change', function () {
+            _this.setDark(_this.toggle.checked);
+        });
+    };
+    ThemeToggle.prototype.setDark = function (isDark) {
+        this.isDark = isDark;
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    };
+    ThemeToggle.prototype.getCurrentTheme = function () {
+        return this.isDark ? 'dark' : 'light';
+    };
+    return ThemeToggle;
+}());

@@ -35,6 +35,7 @@ function renderProducts(guitars: Array<Product>) {
 //control functions
 
 window.addEventListener("DOMContentLoaded", () => {
+    new ThemeToggle();
     try {
         const button = document.getElementById("addGuitarButton");
         if (!button) throw new Error("addGuitarButton button not found");
@@ -97,3 +98,35 @@ function displayForm(isVisible: boolean): void {
 }
 
 
+
+class ThemeToggle {
+    private toggle: HTMLInputElement;
+    private isDark: boolean = false;
+
+    constructor() {
+        this.toggle = document.getElementById('theme-toggle') as HTMLInputElement;
+        if (this.toggle) {
+            this.init();
+        }
+    }
+
+    private init(): void {
+        this.toggle.addEventListener('change', () => {
+            this.setDark(this.toggle.checked);
+        });
+    }
+
+    private setDark(isDark: boolean): void {
+        this.isDark = isDark;
+        
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        } else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    }
+
+    public getCurrentTheme(): 'light' | 'dark' {
+        return this.isDark ? 'dark' : 'light';
+    }
+}
