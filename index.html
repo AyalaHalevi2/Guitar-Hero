@@ -54,8 +54,15 @@
     </div>
     <button value="Send Form" type="submit" id="submitButton">Add The new Guitar</button>
   </form>
-
-  <div id="guitarsRoot" class="guitarsRoot">  
+  
+    <select name="sort" id="sortSelect" class="sort_by">
+      <option class="sortOption" value="default">Sort by</option>
+      <option class="sortOption" value="priceHTL">Price High to Low</option>
+      <option class="sortOption" value="priceLTH">Price Low to High</option>
+      <option class="sortOption" value="stock">Most in Stock</option>
+    </select>
+  
+  <div id="guitarsRoot" class="guitarsRoot">
   </div>
 
 </body>
