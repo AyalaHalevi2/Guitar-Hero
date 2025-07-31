@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-a:root {
-  font-size: 17px;
-=======
 :root {
   --base-font-size: 17px;
   --logo-font-size: 2.5rem;
@@ -11,7 +7,6 @@ a:root {
   --input-font-size: 1rem;
   --submit-font-size: 1.2rem;
   --product-font-size: 1rem;
->>>>>>> origin/ori-dev-toggle
   --prime-color: rgb(233, 220, 193);
   --bg-color: rgb(233, 220, 193);
   --header-bg: black;
@@ -332,8 +327,7 @@ body {
   border-radius: 15px;
 }
 .product__name, .product__price, .product__stock {
-<<<<<<< HEAD
-  font-size: 1rem;
+  font-size: var(--product-font-size);
 }
 .product__delete {
   cursor: pointer;
@@ -342,69 +336,6 @@ body {
 }
 .product__delete img {
   width: 40px;
-}
-
-.toggle {
-  --ball-size: 30px;
-  --slot-padding: 1px;
-  --slot-height: calc(var(--ball-size) + 2 * var(--slot-padding));
-  --slot-width: calc((var(--ball-size) + var(--slot-padding)) * 2);
-  cursor: pointer;
-}
-.toggle input {
-  display: none;
-}
-.toggle input:checked + .slot {
-  background: green;
-}
-.toggle input:checked + .slot .ball {
-  left: unset;
-  right: var(--slot-padding);
-}
-.toggle .slot {
-  width: var(--slot-width);
-  height: var(--slot-height);
-  background: #999;
-  border-radius: var(--slot-height);
-  position: relative;
-}
-.toggle .ball {
-  width: var(--ball-size);
-  height: var(--ball-size);
-  background-color: #ddd;
-  border-radius: var(--ball-size);
-  position: absolute;
-  top: var(--slot-padding);
-  left: var(--slot-padding);
-}
-
-.sort_by {
-  display: flex;
-  align-items: center;
-  padding: 0.2rem 0.5rem;
-  margin-left: 4%;
-  width: 12rem;
-  height: 2rem;
-  border: 1px solid #999999;
-  border-radius: 7px;
-  color: black;
-  background-color: white;
-  font-family: inherit;
-  cursor: pointer;
-}
-.sort_by :hover {
-  background-color: #e9dcc1;
-}
-.sort_by_option {
-  background-color: white;
-  color: black;
-  border: none;
-  cursor: pointer;
-}
-.sort_by_option :hover {
-  background-color: #b4b4b4;
-=======
-  font-size: var(--product-font-size);
 }
 
 .theme-switch {
@@ -453,6 +384,33 @@ input:checked + .slider:before {
   transform: translateX(30px);
 }
 
+.sort_by {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  margin-left: 4%;
+  width: 12rem;
+  height: 2rem;
+  border: 1px solid #999999;
+  border-radius: 7px;
+  color: black;
+  background-color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+.sort_by :hover {
+  background-color: #e9dcc1;
+}
+.sort_by_option {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+.sort_by_option :hover {
+  background-color: #b4b4b4;
+}
+
 .theme-labels {
   display: flex;
   justify-content: space-between;
@@ -460,5 +418,4 @@ input:checked + .slider:before {
   margin-top: 0.3rem;
   font-size: 0.7rem;
   color: var(--header-text);
->>>>>>> origin/ori-dev-toggle
 }
