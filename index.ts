@@ -154,6 +154,21 @@ function deleteButton() {
     if (!deleteButtons) throw new Error("can't find an element to delete");
     
 
+    deleteButtons.forEach((button) => {
+      const deleteId = Number(button.getAttribute("data-id"));
+      button.addEventListener("click", function (e) {
+        guitarsArray = guitarsArray.filter(guitar => guitar.id !== deleteId);
+        renderProducts(guitarsArray);
+        deleteButton();
+      });
+    });
+  } catch (error) {
+    console.error("can't find an element to delete", error);
+  }
+}
+
+
+
 class ThemeToggle {
     private toggle: HTMLInputElement;
     private isDark: boolean = false;
@@ -248,17 +263,3 @@ class FontSizeToggle {
         return this.currentSize;
     }
 }
-    deleteButtons.forEach((button) => {
-      const deleteId = Number(button.getAttribute("data-id"));
-      button.addEventListener("click", function (e) {
-        guitarsArray = guitarsArray.filter(guitar => guitar.id !== deleteId);
-        renderProducts(guitarsArray);
-        deleteButton();
-      });
-    });
-  } catch (error) {
-    console.error("can't find an element to delete", error);
-  }
-}
-
-

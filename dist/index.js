@@ -99,10 +99,6 @@ function displayForm(isVisible) {
         console.error("error displayForm", error);
     }
 }
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> dev-Ayala
 function handleSortSelect(event) {
     try {
         var guitars = __spreadArrays(guitarsArray);
@@ -150,10 +146,6 @@ function deleteButton() {
         console.error("can't find an element to delete", error);
     }
 }
-<<<<<<< HEAD
-=======
-=======
->>>>>>> dev-Ayala
 var ThemeToggle = /** @class */ (function () {
     function ThemeToggle() {
         this.isDark = false;
@@ -234,7 +226,3 @@ var FontSizeToggle = /** @class */ (function () {
     };
     return FontSizeToggle;
 }());
-<<<<<<< HEAD
->>>>>>> ori-dev-toggle
-=======
->>>>>>> dev-Ayala
