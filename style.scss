@@ -1,6 +1,14 @@
 
 :root {
-    font-size: 17px;
+    --base-font-size: 17px;
+    --logo-font-size: 2.5rem;
+    --title-font-size: 2rem;
+    --button-font-size: 1rem;
+    --form-title-font-size: 1rem;
+    --input-font-size: 1rem;
+    --submit-font-size: 1.2rem;
+    --product-font-size: 1rem;
+
     --prime-color: rgb(233, 220, 193);
     --bg-color: rgb(233, 220, 193);
     --header-bg: black;
@@ -30,6 +38,28 @@
     --button-text: #ffffff;
 }
 
+[data-font-size="small"] {
+    --base-font-size: 14px;
+    --logo-font-size: 2rem;
+    --title-font-size: 1.6rem;
+    --button-font-size: 0.85rem;
+    --form-title-font-size: 0.85rem;
+    --input-font-size: 0.85rem;
+    --submit-font-size: 1rem;
+    --product-font-size: 0.85rem;
+}
+
+[data-font-size="large"] {
+    --base-font-size: 20px;
+    --logo-font-size: 3rem;
+    --title-font-size: 2.4rem;
+    --button-font-size: 1.15rem;
+    --form-title-font-size: 1.15rem;
+    --input-font-size: 1.15rem;
+    --submit-font-size: 1.4rem;
+    --product-font-size: 1.15rem;
+}
+
 * {
     box-sizing: border-box;
 }
@@ -48,6 +78,7 @@ body {
     gap: 1rem;
     background-color: var(--bg-color);
     transition: background-color 0.3s ease;
+    font-size: var(--base-font-size);
 }
 
 .header {
@@ -71,7 +102,7 @@ body {
         font-size: 1.8rem;
 
         &__name {
-            font-size: 2.5rem;
+            font-size: var(--logo-font-size);
 
             @media screen and (max-width:450px) {
                 font-size: 1.8rem;
@@ -89,10 +120,25 @@ body {
     &__title {
         display: flex;
         align-items: center;
-        font-size: 2rem;
+        font-size: var(--title-font-size);
 
         @media screen and (max-width:800px) {
             display: none;
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        
+        @media screen and (max-width: 600px) {
+            gap: 1rem;
+        }
+        
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            gap: 0.5rem;
         }
     }
 
@@ -102,6 +148,51 @@ body {
         align-items: center;
         justify-content: center;
     }
+}
+
+.font-size-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.font-size-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--header-text);
+    background-color: transparent;
+    color: var(--header-text);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: inherit;
+
+    &:hover {
+        background-color: var(--header-text);
+        color: var(--header-bg);
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.font-size-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: font-size 0.3s ease;
+}
+
+.font-size-label {
+    font-size: 0.7rem;
+    color: var(--header-text);
+    text-align: center;
+    min-width: 45px;
 }
 
 #addGuitarButton {
@@ -117,6 +208,7 @@ body {
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: var(--button-font-size);
 
     &:hover {
         transform: scale(1.02);
@@ -130,6 +222,8 @@ body {
         }
     }
 }
+
+
 
 .addGuitar {
     width: 90%;
@@ -150,6 +244,7 @@ body {
 
     &__title {
         margin-left: 0.5rem;
+        font-size: var(--form-title-font-size);
     }
 
     &__input {
@@ -159,7 +254,7 @@ body {
         min-width: 20rem;
         max-width: 50%;
         padding: 0.5rem;
-        font-size: 1rem;
+        font-size: var(--input-font-size);
         background-color: var(--input-bg);
         color: var(--input-text);
         border: 1px solid var(--input-text);
@@ -179,7 +274,7 @@ body {
         border-radius: 15px;
         margin: 0.5rem;
         font-family: inherit;
-        font-size: 1.2rem;
+        font-size: var(--submit-font-size);
         font-weight: 600;
         transition: all 0.3s;
         height: 3rem;
@@ -256,7 +351,7 @@ body {
     &__name,
     &__price,
     &__stock {
-        font-size: 1rem;
+        font-size: var(--product-font-size);
     }
 }
 

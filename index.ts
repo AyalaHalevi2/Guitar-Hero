@@ -36,6 +36,7 @@ function renderProducts(guitars: Array<Product>) {
 
 window.addEventListener("DOMContentLoaded", () => {
     new ThemeToggle();
+    new FontSizeToggle();
     try {
         const button = document.getElementById("addGuitarButton");
         if (!button) throw new Error("addGuitarButton button not found");
@@ -128,5 +129,68 @@ class ThemeToggle {
 
     public getCurrentTheme(): 'light' | 'dark' {
         return this.isDark ? 'dark' : 'light';
+    }
+}
+
+class FontSizeToggle {
+    private button: HTMLButtonElement;
+    private label: HTMLElement;
+    private currentSize: 'small' | 'medium' | 'large' = 'medium';
+    private sizes: ('small' | 'medium' | 'large')[] = ['small', 'medium', 'large'];
+
+    constructor() {
+        this.button = document.getElementById('font-size-toggle') as HTMLButtonElement;
+        this.label = document.getElementById('font-size-label') as HTMLElement;
+        if (this.button && this.label) {
+            this.init();
+        }
+    }
+
+    private init(): void {
+        this.button.addEventListener('click', () => {
+            this.toggleFontSize();
+        });
+        
+        this.updateLabel();
+    }
+
+    private toggleFontSize(): void {
+        const currentIndex = this.sizes.indexOf(this.currentSize);
+        const nextIndex = (currentIndex + 1) % this.sizes.length;
+        this.currentSize = this.sizes[nextIndex];
+        
+        this.setFontSize(this.currentSize);
+        this.updateLabel();
+    }
+
+    private setFontSize(size: 'small' | 'medium' | 'large'): void {
+        document.documentElement.removeAttribute('data-font-size');
+        
+        if (size !== 'medium') {
+            document.documentElement.setAttribute('data-font-size', size);
+        }
+    }
+
+    private updateLabel(): void {
+        this.label.textContent = this.currentSize.charAt(0).toUpperCase() + this.currentSize.slice(1);
+        
+        const fontSizeText = this.button.querySelector('.font-size-text') as HTMLElement;
+        if (fontSizeText) {
+            switch (this.currentSize) {
+                case 'small':
+                    fontSizeText.style.fontSize = '1rem';
+                    break;
+                case 'medium':
+                    fontSizeText.style.fontSize = '1.2rem';
+                    break;
+                case 'large':
+                    fontSizeText.style.fontSize = '1.4rem';
+                    break;
+            }
+        }
+    }
+
+    public getCurrentSize(): 'small' | 'medium' | 'large' {
+        return this.currentSize;
     }
 }
