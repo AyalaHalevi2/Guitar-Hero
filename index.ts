@@ -60,9 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const addForm = document.querySelector(".addGuitar");
     if (!addForm) throw new Error("Form not found");
     addForm.addEventListener("submit", handleSubmit);
-  } catch (error) {
-    console.error("error events: ", error);
-  }
+
 
         const sortBy = document.getElementById("sortSelect")
         if (!sortBy) throw new Error("sortSelect select input not found");
@@ -116,8 +114,7 @@ function displayForm(isVisible: boolean): void {
   }
 }
 
-function deleteButton() {
-  const deleteButtons = document.querySelectorAll(".product__delete");
+
 function handleSortSelect(event: Event) {
     try {
         const guitars = [...guitarsArray]
@@ -141,9 +138,19 @@ function handleSortSelect(event: Event) {
             default:
                 break;
         }
+            } catch (error) {
+        console.error("error handaling sort select: ", error);
+    }
+}
 
+function deleteButton() {
+  
   try {
+      const deleteButtons = document.querySelectorAll(".product__delete");
+
+    
     if (!deleteButtons) throw new Error("can't find an element to delete");
+    
 
     deleteButtons.forEach((button) => {
       const deleteId = Number(button.getAttribute("data-id"));
@@ -158,7 +165,4 @@ function handleSortSelect(event: Event) {
   }
 }
 
-    } catch (error) {
-        console.error("error handaling sort select: ", error);
-    }
-}
+

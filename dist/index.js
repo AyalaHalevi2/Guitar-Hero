@@ -42,15 +42,11 @@ window.addEventListener("DOMContentLoaded", function () {
         var addForm = document.querySelector(".addGuitar");
         if (!addForm)
             throw new Error("Form not found");
-<<<<<<< HEAD
         addForm.addEventListener("submit", handleSubmit);
-=======
-        addForm.addEventListener("submit", (handleSubmit));
         var sortBy = document.getElementById("sortSelect");
         if (!sortBy)
             throw new Error("sortSelect select input not found");
         sortBy.addEventListener("change", function (event) { handleSortSelect(event); });
->>>>>>> origin/dev
     }
     catch (error) {
         console.error("error events: ", error);
@@ -101,24 +97,6 @@ function displayForm(isVisible) {
         console.error("error displayForm", error);
     }
 }
-<<<<<<< HEAD
-function deleteButton() {
-    var deleteButtons = document.querySelectorAll(".product__delete");
-    try {
-        if (!deleteButtons)
-            throw new Error("can't find an element to delete");
-        deleteButtons.forEach(function (button) {
-            var deleteId = Number(button.getAttribute("data-id"));
-            button.addEventListener("click", function (e) {
-                guitarsArray = guitarsArray.filter(function (guitar) { return guitar.id !== deleteId; });
-                renderProducts(guitarsArray);
-                deleteButton();
-            });
-        });
-    }
-    catch (error) {
-        console.error("can't find an element to delete", error);
-=======
 function handleSortSelect(event) {
     try {
         var guitars = __spreadArrays(guitarsArray);
@@ -146,6 +124,23 @@ function handleSortSelect(event) {
     }
     catch (error) {
         console.error("error handaling sort select: ", error);
->>>>>>> origin/dev
+    }
+}
+function deleteButton() {
+    try {
+        var deleteButtons = document.querySelectorAll(".product__delete");
+        if (!deleteButtons)
+            throw new Error("can't find an element to delete");
+        deleteButtons.forEach(function (button) {
+            var deleteId = Number(button.getAttribute("data-id"));
+            button.addEventListener("click", function (e) {
+                guitarsArray = guitarsArray.filter(function (guitar) { return guitar.id !== deleteId; });
+                renderProducts(guitarsArray);
+                deleteButton();
+            });
+        });
+    }
+    catch (error) {
+        console.error("can't find an element to delete", error);
     }
 }

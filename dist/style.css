@@ -195,7 +195,6 @@ body {
 .product__name, .product__price, .product__stock {
   font-size: 1rem;
 }
-<<<<<<< HEAD
 .product__delete {
   cursor: pointer;
   width: 40px;
@@ -204,8 +203,6 @@ body {
 .product__delete img {
   width: 40px;
 }
-=======
->>>>>>> origin/dev
 
 .toggle {
   --ball-size: 30px;
@@ -239,8 +236,6 @@ body {
   position: absolute;
   top: var(--slot-padding);
   left: var(--slot-padding);
-<<<<<<< HEAD
-=======
 }
 
 .sort_by {
@@ -268,5 +263,4 @@ body {
 }
 .sort_by_option :hover {
   background-color: #b4b4b4;
->>>>>>> origin/dev
 }
