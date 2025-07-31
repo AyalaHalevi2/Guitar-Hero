@@ -1,4 +1,4 @@
-:root {
+a:root {
     font-size: 17px;
     --prime-color: rgb(233, 220, 193);
 
@@ -215,6 +215,18 @@ body {
     &__stock {
         font-size: 1rem;
     }
+    &__delete{
+        cursor: pointer;
+        
+        width: 40px;
+        height: 40px;
+        img{
+            width: 40px;
+
+            
+        }
+    }
+    
 }
 
 
