@@ -384,6 +384,7 @@ input:checked + .slider:before {
   transform: translateX(30px);
 }
 
+<<<<<<< HEAD
 .theme-labels {
   display: flex;
   justify-content: space-between;
@@ -393,6 +394,8 @@ input:checked + .slider:before {
   color: var(--header-text);
 }
 
+=======
+>>>>>>> dev-Ayala
 .sort_by {
   display: flex;
   align-items: center;
@@ -418,4 +421,16 @@ input:checked + .slider:before {
 }
 .sort_by_option :hover {
   background-color: #b4b4b4;
+<<<<<<< HEAD
+=======
+}
+
+.theme-labels {
+  display: flex;
+  justify-content: space-between;
+  width: 60px;
+  margin-top: 0.3rem;
+  font-size: 0.7rem;
+  color: var(--header-text);
+>>>>>>> dev-Ayala
 }

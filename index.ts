@@ -52,6 +52,16 @@ function renderProducts(guitars: Array<Product>) {
 window.addEventListener("DOMContentLoaded", () => {
     new ThemeToggle();
     new FontSizeToggle();
+    try {
+        const button = document.getElementById("addGuitarButton");
+        if (!button) throw new Error("addGuitarButton button not found");
+        button.addEventListener("click", () => {
+            showForm = !showForm
+            displayForm(showForm)
+        });
+        const addForm = document.querySelector('.addGuitar');
+        if (!addForm) throw new Error("Form not found");
+        addForm.addEventListener("submit", (handleSubmit));
 
 
         const sortBy = document.getElementById("sortSelect")

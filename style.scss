@@ -419,15 +419,6 @@ input:checked + .slider {
     }
 }
 
-.theme-labels {
-    display: flex;
-    justify-content: space-between;
-    width: 60px;
-    margin-top: 0.3rem;
-    font-size: 0.7rem;
-    color: var(--header-text);
-}
-
 .sort {
     &_by {
         display: flex;
@@ -458,4 +449,14 @@ input:checked + .slider {
 
         }
     }
+}
+
+
+.theme-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    color: var(--header-text);
 }

@@ -41,10 +41,10 @@ window.addEventListener("DOMContentLoaded", function () {
             showForm = !showForm;
             displayForm(showForm);
         });
-        var addForm = document.querySelector(".addGuitar");
+        var addForm = document.querySelector('.addGuitar');
         if (!addForm)
             throw new Error("Form not found");
-        addForm.addEventListener("submit", handleSubmit);
+        addForm.addEventListener("submit", (handleSubmit));
         var sortBy = document.getElementById("sortSelect");
         if (!sortBy)
             throw new Error("sortSelect select input not found");
@@ -100,6 +100,9 @@ function displayForm(isVisible) {
     }
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> dev-Ayala
 function handleSortSelect(event) {
     try {
         var guitars = __spreadArrays(guitarsArray);
@@ -147,7 +150,10 @@ function deleteButton() {
         console.error("can't find an element to delete", error);
     }
 }
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> dev-Ayala
 var ThemeToggle = /** @class */ (function () {
     function ThemeToggle() {
         this.isDark = false;
@@ -228,4 +234,7 @@ var FontSizeToggle = /** @class */ (function () {
     };
     return FontSizeToggle;
 }());
+<<<<<<< HEAD
 >>>>>>> ori-dev-toggle
+=======
+>>>>>>> dev-Ayala
