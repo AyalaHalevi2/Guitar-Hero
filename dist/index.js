@@ -1,4 +1,11 @@
 //Data
+var __spreadArrays = (this && this.__spreadArrays) || function () {
+    for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
+    for (var r = Array(s), k = 0, i = 0; i < il; i++)
+        for (var a = arguments[i], j = 0, jl = a.length; j < jl; j++, k++)
+            r[k] = a[j];
+    return r;
+};
 var guitarsArray = [];
 var showForm = false;
 var idcounter = 0;
@@ -35,7 +42,15 @@ window.addEventListener("DOMContentLoaded", function () {
         var addForm = document.querySelector(".addGuitar");
         if (!addForm)
             throw new Error("Form not found");
+<<<<<<< HEAD
         addForm.addEventListener("submit", handleSubmit);
+=======
+        addForm.addEventListener("submit", (handleSubmit));
+        var sortBy = document.getElementById("sortSelect");
+        if (!sortBy)
+            throw new Error("sortSelect select input not found");
+        sortBy.addEventListener("change", function (event) { handleSortSelect(event); });
+>>>>>>> origin/dev
     }
     catch (error) {
         console.error("error events: ", error);
@@ -86,6 +101,7 @@ function displayForm(isVisible) {
         console.error("error displayForm", error);
     }
 }
+<<<<<<< HEAD
 function deleteButton() {
     var deleteButtons = document.querySelectorAll(".product__delete");
     try {
@@ -102,5 +118,34 @@ function deleteButton() {
     }
     catch (error) {
         console.error("can't find an element to delete", error);
+=======
+function handleSortSelect(event) {
+    try {
+        var guitars = __spreadArrays(guitarsArray);
+        var selectValue = event.target.value;
+        if (!(selectValue))
+            throw new Error("select value not found");
+        switch (selectValue) {
+            case "priceHTL":
+                guitars.sort(function (a, b) { return b.price - a.price; });
+                renderProducts(guitars);
+                break;
+            case "priceLTH":
+                guitars.sort(function (a, b) { return a.price - b.price; });
+                renderProducts(guitars);
+                break;
+            case "stock":
+                guitars.sort(function (a, b) { return b.amountinStock - a.amountinStock; });
+                renderProducts(guitars);
+                break;
+            case "default":
+                break;
+            default:
+                break;
+        }
+    }
+    catch (error) {
+        console.error("error handaling sort select: ", error);
+>>>>>>> origin/dev
     }
 }

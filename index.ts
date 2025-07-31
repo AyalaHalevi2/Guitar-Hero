@@ -64,7 +64,13 @@ window.addEventListener("DOMContentLoaded", () => {
     console.error("error events: ", error);
   }
 
-});
+        const sortBy = document.getElementById("sortSelect")
+        if (!sortBy) throw new Error("sortSelect select input not found");
+        sortBy.addEventListener("change", (event) => { handleSortSelect(event) })
+    } catch (error) {
+        console.error("error events: ", error)
+    }
+})
 
 //model functions
 
@@ -112,6 +118,29 @@ function displayForm(isVisible: boolean): void {
 
 function deleteButton() {
   const deleteButtons = document.querySelectorAll(".product__delete");
+function handleSortSelect(event: Event) {
+    try {
+        const guitars = [...guitarsArray]
+        const selectValue = (event.target as HTMLSelectElement).value;
+        if (!(selectValue)) throw new Error("select value not found");
+        switch (selectValue) {
+            case "priceHTL":
+                guitars.sort((a, b) => b.price - a.price);
+                renderProducts(guitars);
+                break;
+            case "priceLTH":
+                guitars.sort((a, b) => a.price - b.price);
+                renderProducts(guitars);
+                break;
+            case "stock":
+                guitars.sort((a, b) => b.amountinStock - a.amountinStock);
+                renderProducts(guitars);
+                break;
+            case "default":
+                break;
+            default:
+                break;
+        }
 
   try {
     if (!deleteButtons) throw new Error("can't find an element to delete");
@@ -127,4 +156,9 @@ function deleteButton() {
   } catch (error) {
     console.error("can't find an element to delete", error);
   }
+}
+
+    } catch (error) {
+        console.error("error handaling sort select: ", error);
+    }
 }

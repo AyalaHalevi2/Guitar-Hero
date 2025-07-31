@@ -195,6 +195,7 @@ body {
 .product__name, .product__price, .product__stock {
   font-size: 1rem;
 }
+<<<<<<< HEAD
 .product__delete {
   cursor: pointer;
   width: 40px;
@@ -203,6 +204,8 @@ body {
 .product__delete img {
   width: 40px;
 }
+=======
+>>>>>>> origin/dev
 
 .toggle {
   --ball-size: 30px;
@@ -236,4 +239,34 @@ body {
   position: absolute;
   top: var(--slot-padding);
   left: var(--slot-padding);
+<<<<<<< HEAD
+=======
+}
+
+.sort_by {
+  display: flex;
+  align-items: center;
+  padding: 0.2rem 0.5rem;
+  margin-left: 4%;
+  width: 12rem;
+  height: 2rem;
+  border: 1px solid #999999;
+  border-radius: 7px;
+  color: black;
+  background-color: white;
+  font-family: inherit;
+  cursor: pointer;
+}
+.sort_by :hover {
+  background-color: #e9dcc1;
+}
+.sort_by_option {
+  background-color: white;
+  color: black;
+  border: none;
+  cursor: pointer;
+}
+.sort_by_option :hover {
+  background-color: #b4b4b4;
+>>>>>>> origin/dev
 }

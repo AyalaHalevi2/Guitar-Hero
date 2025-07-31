@@ -126,9 +126,9 @@ body {
         font-size: 1rem;
 
         @media screen and (max-width:425px) {
-          width: 95%;
-          min-width:0;
-        max-width: inherit;
+            width: 95%;
+            min-width: 0;
+            max-width: inherit;
         }
     }
 
@@ -149,10 +149,11 @@ body {
             background-color: var(--prime-color);
             transform: translateY(-0.2rem);
         }
-         @media screen and (max-width:350px) {
-         margin: auto;
-         width: fit-content;
-         min-height: fit-content;
+
+        @media screen and (max-width:350px) {
+            margin: auto;
+            width: fit-content;
+            min-height: fit-content;
         }
     }
 }
@@ -267,5 +268,37 @@ body {
         position: absolute;
         top: var(--slot-padding);
         left: var(--slot-padding);
+    }
+}
+
+.sort {
+    &_by {
+        display: flex;
+        align-items: center;
+        padding: 0.2rem 0.5rem;
+        margin-left: 4%;
+        width: 12rem;
+        height: 2rem;
+        border: 1px solid rgb(153, 153, 153);
+        border-radius: 7px;
+        color: black;
+        background-color: white;
+        font-family: inherit;
+        cursor: pointer;
+        :hover {
+            background-color: rgb(233, 220, 193);
+        }
+
+        &_option {
+            background-color: white;
+            color: black;
+            border: none;
+            cursor: pointer;
+
+            :hover {
+                background-color: rgb(180, 180, 180);
+            }
+
+        }
     }
 }
