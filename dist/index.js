@@ -31,6 +31,8 @@ function renderProducts(guitars) {
 }
 //control functions
 window.addEventListener("DOMContentLoaded", function () {
+    new ThemeToggle();
+    new FontSizeToggle();
     try {
         var button = document.getElementById("addGuitarButton");
         if (!button)
@@ -97,6 +99,7 @@ function displayForm(isVisible) {
         console.error("error displayForm", error);
     }
 }
+<<<<<<< HEAD
 function handleSortSelect(event) {
     try {
         var guitars = __spreadArrays(guitarsArray);
@@ -144,3 +147,85 @@ function deleteButton() {
         console.error("can't find an element to delete", error);
     }
 }
+=======
+var ThemeToggle = /** @class */ (function () {
+    function ThemeToggle() {
+        this.isDark = false;
+        this.toggle = document.getElementById('theme-toggle');
+        if (this.toggle) {
+            this.init();
+        }
+    }
+    ThemeToggle.prototype.init = function () {
+        var _this = this;
+        this.toggle.addEventListener('change', function () {
+            _this.setDark(_this.toggle.checked);
+        });
+    };
+    ThemeToggle.prototype.setDark = function (isDark) {
+        this.isDark = isDark;
+        if (isDark) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+        }
+        else {
+            document.documentElement.removeAttribute('data-theme');
+        }
+    };
+    ThemeToggle.prototype.getCurrentTheme = function () {
+        return this.isDark ? 'dark' : 'light';
+    };
+    return ThemeToggle;
+}());
+var FontSizeToggle = /** @class */ (function () {
+    function FontSizeToggle() {
+        this.currentSize = 'medium';
+        this.sizes = ['small', 'medium', 'large'];
+        this.button = document.getElementById('font-size-toggle');
+        this.label = document.getElementById('font-size-label');
+        if (this.button && this.label) {
+            this.init();
+        }
+    }
+    FontSizeToggle.prototype.init = function () {
+        var _this = this;
+        this.button.addEventListener('click', function () {
+            _this.toggleFontSize();
+        });
+        this.updateLabel();
+    };
+    FontSizeToggle.prototype.toggleFontSize = function () {
+        var currentIndex = this.sizes.indexOf(this.currentSize);
+        var nextIndex = (currentIndex + 1) % this.sizes.length;
+        this.currentSize = this.sizes[nextIndex];
+        this.setFontSize(this.currentSize);
+        this.updateLabel();
+    };
+    FontSizeToggle.prototype.setFontSize = function (size) {
+        document.documentElement.removeAttribute('data-font-size');
+        if (size !== 'medium') {
+            document.documentElement.setAttribute('data-font-size', size);
+        }
+    };
+    FontSizeToggle.prototype.updateLabel = function () {
+        this.label.textContent = this.currentSize.charAt(0).toUpperCase() + this.currentSize.slice(1);
+        var fontSizeText = this.button.querySelector('.font-size-text');
+        if (fontSizeText) {
+            switch (this.currentSize) {
+                case 'small':
+                    fontSizeText.style.fontSize = '1rem';
+                    break;
+                case 'medium':
+                    fontSizeText.style.fontSize = '1.2rem';
+                    break;
+                case 'large':
+                    fontSizeText.style.fontSize = '1.4rem';
+                    break;
+            }
+        }
+    };
+    FontSizeToggle.prototype.getCurrentSize = function () {
+        return this.currentSize;
+    };
+    return FontSizeToggle;
+}());
+>>>>>>> ori-dev-toggle

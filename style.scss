@@ -1,7 +1,63 @@
-a:root {
-    font-size: 17px;
-    --prime-color: rgb(233, 220, 193);
 
+:root {
+    --base-font-size: 17px;
+    --logo-font-size: 2.5rem;
+    --title-font-size: 2rem;
+    --button-font-size: 1rem;
+    --form-title-font-size: 1rem;
+    --input-font-size: 1rem;
+    --submit-font-size: 1.2rem;
+    --product-font-size: 1rem;
+
+    --prime-color: rgb(233, 220, 193);
+    --bg-color: rgb(233, 220, 193);
+    --header-bg: black;
+    --header-text: white;
+    --card-bg: white;
+    --card-text: black;
+    --form-bg: black;
+    --form-text: white;
+    --input-bg: white;
+    --input-text: black;
+    --button-bg: black;
+    --button-text: white;
+}
+
+[data-theme="dark"] {
+    --prime-color: #1a1a1a;
+    --bg-color: #1a1a1a;
+    --header-bg: #2d2d2d;
+    --header-text: #ffffff;
+    --card-bg: #2d2d2d;
+    --card-text: #ffffff;
+    --form-bg: #2d2d2d;
+    --form-text: #ffffff;
+    --input-bg: #444444;
+    --input-text: #ffffff;
+    --button-bg: #4a4a4a;
+    --button-text: #ffffff;
+}
+
+[data-font-size="small"] {
+    --base-font-size: 14px;
+    --logo-font-size: 2rem;
+    --title-font-size: 1.6rem;
+    --button-font-size: 0.85rem;
+    --form-title-font-size: 0.85rem;
+    --input-font-size: 0.85rem;
+    --submit-font-size: 1rem;
+    --product-font-size: 0.85rem;
+}
+
+[data-font-size="large"] {
+    --base-font-size: 20px;
+    --logo-font-size: 3rem;
+    --title-font-size: 2.4rem;
+    --button-font-size: 1.15rem;
+    --form-title-font-size: 1.15rem;
+    --input-font-size: 1.15rem;
+    --submit-font-size: 1.4rem;
+    --product-font-size: 1.15rem;
 }
 
 * {
@@ -20,7 +76,9 @@ body {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    background-color: var(--prime-color);
+    background-color: var(--bg-color);
+    transition: background-color 0.3s ease;
+    font-size: var(--base-font-size);
 }
 
 .header {
@@ -28,11 +86,12 @@ body {
     width: 100%;
     display: flex;
     flex-direction: row;
-    background-color: black;
-    color: white;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     justify-content: space-between;
     padding: 1rem 2rem;
     box-shadow: 0 0 30px 5px black;
+    transition: all 0.3s ease;
 
     &__logo {
         display: flex;
@@ -43,7 +102,7 @@ body {
         font-size: 1.8rem;
 
         &__name {
-            font-size: 2.5rem;
+            font-size: var(--logo-font-size);
 
             @media screen and (max-width:450px) {
                 font-size: 1.8rem;
@@ -61,19 +120,86 @@ body {
     &__title {
         display: flex;
         align-items: center;
-        font-size: 2rem;
+        font-size: var(--title-font-size);
 
         @media screen and (max-width:800px) {
             display: none;
         }
     }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+        
+        @media screen and (max-width: 600px) {
+            gap: 1rem;
+        }
+        
+        @media screen and (max-width: 500px) {
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+    }
+
+    &__theme {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.font-size-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.font-size-btn {
+    width: 45px;
+    height: 45px;
+    border: 2px solid var(--header-text);
+    background-color: transparent;
+    color: var(--header-text);
+    border-radius: 8px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    font-family: inherit;
+
+    &:hover {
+        background-color: var(--header-text);
+        color: var(--header-bg);
+        transform: scale(1.05);
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+}
+
+.font-size-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    transition: font-size 0.3s ease;
+}
+
+.font-size-label {
+    font-size: 0.7rem;
+    color: var(--header-text);
+    text-align: center;
+    min-width: 45px;
 }
 
 #addGuitarButton {
     width: 12rem;
     height: 4rem;
-    background-color: black;
-    color: white;
+    background-color: var(--button-bg);
+    color: var(--button-text);
     display: flex;
     align-items: center;
     border-radius: 15px;
@@ -82,6 +208,7 @@ body {
     justify-content: space-between;
     cursor: pointer;
     transition: all 0.3s;
+    font-size: var(--button-font-size);
 
     &:hover {
         transform: scale(1.02);
@@ -96,16 +223,19 @@ body {
     }
 }
 
+
+
 .addGuitar {
     width: 90%;
     display: none;
     flex-direction: column;
     margin-left: 4%;
-    background-color: black;
-    color: white;
+    background-color: var(--form-bg);
+    color: var(--form-text);
     padding: 1rem;
     border-radius: 15px;
     gap: 1rem;
+    transition: all 0.3s ease;
 
     &__section {
         display: flex;
@@ -114,6 +244,7 @@ body {
 
     &__title {
         margin-left: 0.5rem;
+        font-size: var(--form-title-font-size);
     }
 
     &__input {
@@ -123,7 +254,11 @@ body {
         min-width: 20rem;
         max-width: 50%;
         padding: 0.5rem;
-        font-size: 1rem;
+        font-size: var(--input-font-size);
+        background-color: var(--input-bg);
+        color: var(--input-text);
+        border: 1px solid var(--input-text);
+        transition: all 0.3s ease;
 
         @media screen and (max-width:425px) {
             width: 95%;
@@ -139,21 +274,23 @@ body {
         border-radius: 15px;
         margin: 0.5rem;
         font-family: inherit;
-        font-size: 1.2rem;
+        font-size: var(--submit-font-size);
         font-weight: 600;
         transition: all 0.3s;
         height: 3rem;
-
+        background-color: var(--input-bg);
+        color: var(--input-text);
+        border: 1px solid var(--input-text);
 
         &:hover {
             background-color: var(--prime-color);
             transform: translateY(-0.2rem);
         }
 
-        @media screen and (max-width:350px) {
-            margin: auto;
-            width: fit-content;
-            min-height: fit-content;
+         @media screen and (max-width:350px) {
+         margin: auto;
+         width: fit-content;
+         min-height: fit-content;
         }
     }
 }
@@ -188,14 +325,14 @@ body {
 .product {
     display: flex;
     flex-direction: column;
-    color: black;
+    color: var(--card-text);
     height: 300px;
     // border: 1px solid black;
-    background-color: white;
+    background-color: var(--card-bg);
     border-radius: 15px;
     padding: 0.5rem;
-
     justify-content: center;
+    transition: all 0.3s ease;
 
     &__img {
         height: 180px;
@@ -214,7 +351,7 @@ body {
     &__name,
     &__price,
     &__stock {
-        font-size: 1rem;
+        font-size: var(--product-font-size);
     }
     &__delete{
         cursor: pointer;
@@ -232,43 +369,63 @@ body {
 
 
 
-.toggle {
-    --ball-size: 30px;
-    --slot-padding: 1px;
-    --slot-height: calc(var(--ball-size) + 2 * var(--slot-padding));
-    --slot-width: calc((var(--ball-size) + var(--slot-padding)) * 2);
-    cursor: pointer;
+.theme-switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 30px;
 
     input {
-        display: none;
-
-        &:checked+.slot {
-            background: green;
-
-            .ball {
-                left: unset;
-                right: var(--slot-padding);
-            }
-        }
+        opacity: 0;
+        width: 0;
+        height: 0;
     }
+}
 
-    .slot {
-        width: var(--slot-width);
-        height: var(--slot-height);
-        background: #999;
-        border-radius: var(--slot-height);
-        position: relative;
-    }
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.3s;
+    border-radius: 30px;
 
-    .ball {
-        width: var(--ball-size);
-        height: var(--ball-size);
-        background-color: #ddd;
-        border-radius: var(--ball-size);
+    &:before {
         position: absolute;
-        top: var(--slot-padding);
-        left: var(--slot-padding);
+        content: "";
+        height: 22px;
+        width: 22px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        transition: 0.3s;
+        border-radius: 50%;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     }
+
+    &:hover {
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+}
+
+input:checked + .slider {
+    background-color:  white;
+
+    &:before {
+        transform: translateX(30px);
+    }
+}
+
+.theme-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 60px;
+    margin-top: 0.3rem;
+    font-size: 0.7rem;
+    color: var(--header-text);
 }
 
 .sort {
